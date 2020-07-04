@@ -1,18 +1,22 @@
 import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
+import AttendAtHomeStackDrawer from '../stackdrawers/AttendAtHomeStackDrawer';
+import UploadStackDrawer from '../stackdrawers/UploadStackDrawer';
+import CallMeScreenStackDrawer from '../stackdrawers/CallMeScreenStackDrawer';
+
+
 
 const SimplifiedDrawerService = () => {
-    const SimplifiedDrawerService = createDrawerNavigator();
-    return (
-        <NavigationContainer>
-            <SimplifiedDrawerService.Navigator>
-                <SimplifiedDrawerService.Screen name="CallbackScreen"></SimplifiedDrawerService.Screen>
-                <SimplifiedDrawerService.Screen name="AttendScreen"></SimplifiedDrawerService.Screen>
-                <SimplifiedDrawerService.Screen name="UploadScreen"></SimplifiedDrawerService.Screen>
-            </SimplifiedDrawerService.Navigator>
-        </NavigationContainer>
-    );
+  const Drawer = createDrawerNavigator();
+  return (
+    <NavigationContainer>
+      <Drawer.Navigator initialRouteName="CallMeScreen">
+        <Drawer.Screen name="CallMeScreen" component={CallMeScreenStackDrawer} />
+        <Drawer.Screen name="AttendAtHomeScreen" component={AttendAtHomeStackDrawer} />
+        <Drawer.Screen name="UploadScreen" component={UploadStackDrawer} />
+      </Drawer.Navigator>
+    </NavigationContainer>
+  );
 }
-
 export default SimplifiedDrawerService;
